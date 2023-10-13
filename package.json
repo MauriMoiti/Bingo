@@ -1,14 +1,14 @@
 {
   "name": "bingo",
   "version": "1.0.0",
-  "description": "Juego Bingo",
+  "description": "reto de programación con JavaScript vanilla",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "JavaScript-Vanilla"
+    "JavaScript-Vanilla css-native html:5 DOM EcmaScript"
   ],
-  "author": "Mauricio-Moitiño <maurimoitii@gmail.com>",
+  "author": "Mauricio-Moitino <maurimoitii@gmail.com>",
   "license": "MIT"
 }

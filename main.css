@@ -1,10 +1,8 @@
 /*
-
 Tamaño de bombo: 250x250px aprox.
 Tamaño de cartones: 300x225px aprox.
 Colores de fondo:  #2455c0 ,  #0b142c
 Otros colores:  #9e1c23 ,  #54090d ,  #eeeeee
-
 */
 * {
     box-sizing: border-box;
@@ -61,6 +59,10 @@ padding: 20px 0px 0px 0px;
     background-color: #eeeeee;
     padding: 15px;
 }
+.number-match {
+    background-color: transparent !important;
+}
+
 .container-bombo {
     width: 250px;
     height: 250px;
@@ -87,7 +89,6 @@ padding: 20px 0px 0px 0px;
     border: none;
     cursor: pointer;
 }
-
 .container-result {
     width: 80%;
     margin: 0px 10%;

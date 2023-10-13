@@ -132,9 +132,18 @@ function changeContent() {
                 // recursion time handler according to the intensity of finding a new non-repeated number
                 (containerRow30.children.length < 30)
                 ? setTimeout(loop, 400)
-                : (containerRow60.children.length >= 15 && containerRow30.children.length < 30)
-                ? setTimeout(loop, 250)
-                : (containerRow60.children.length < 15) ? setTimeout(loop, 200) : setTimeout(loop, 50); 
+                : (containerRow60.children.length >= 0 && containerRow60.children.length < 10)
+                ? setTimeout(loop, 400)
+                : (containerRow60.children.length > 10 && containerRow60.children.length < 20) 
+                ? setTimeout(loop, 350)
+                : (containerRow60.children.length > 20 && containerRow60.children.length < 30) 
+                ? setTimeout(loop, 300)
+                : (containerRow90.children.length >= 0 && containerRow90.children.length < 10) 
+                ? setTimeout(loop, 200) 
+                : (containerRow90.children.length > 10 && containerRow90.children.length < 20) 
+                ? setTimeout(loop, 150)
+                : setTimeout(loop, 50); 
+                findMatch(numberResult)
             }
         }
         loop();  
@@ -143,4 +152,32 @@ function changeContent() {
 buttonStart.addEventListener('click', bingo);
 buttonStart.addEventListener('click', changeContent);
 
-// initialize function of the statement of winner
+// initialize function for statement of the winner
+
+const findMatch = (numberResult) => {
+    if(arrPlayer.find((element) => element === numberResult)) {
+        let indexMatch = arrPlayer.indexOf(arrPlayer.find((element) => element === numberResult))
+        // 6 
+        if(indexMatch < 5) {
+            playerRow1.children[indexMatch].classList.add('number-match');
+        } else if(indexMatch >= 5 && indexMatch < 10) {
+            playerRow2.children[Math.abs(indexMatch - 5)].classList.add('number-match');
+        } else if(indexMatch >= 10 && indexMatch < 15) {
+            playerRow3.children[Math.abs(indexMatch - 10)].classList.add('number-match');
+        }
+    } 
+    if(arrCPU.find((element) => element === numberResult)) { 
+        let indexMatch = arrCPU.indexOf(arrCPU.find((element) => element === numberResult))
+        if(indexMatch < 5) {
+            cpuRow1.children[indexMatch].classList.add('number-match');
+        } else if(indexMatch >= 5 && indexMatch < 10) {
+            cpuRow2.children[Math.abs(indexMatch - 5)].classList.add('number-match');
+        } else if(indexMatch >= 10 && indexMatch < 15) {
+            cpuRow3.children[Math.abs(indexMatch -10)].classList.add('number-match');
+        }
+    }
+}
+
+const isWinner = () => {
+
+}
