@@ -4,9 +4,9 @@ let arrCPU = [];
 let arrResult = [];
 
 // select row-list player
-let playerRow1 = document.querySelector(".player-row-1")
-let playerRow2 = document.querySelector(".player-row-2")
-let playerRow3 = document.querySelector(".player-row-3")
+let playerRow1 = document.querySelector(".player-row-1");
+let playerRow2 = document.querySelector(".player-row-2");
+let playerRow3 = document.querySelector(".player-row-3");
 // select row-list CPU
 let cpuRow1 = document.querySelector(".cpu-row-1");
 let cpuRow2 = document.querySelector(".cpu-row-2");
@@ -88,9 +88,9 @@ let iCPU = 0;
 const buttonStart = document.querySelector(".bombo-button");
 
 // select container row results 
-let containerRow30 = document.querySelector(".container-result-30")
-let containerRow60 = document.querySelector(".container-result-60")
-let containerRow90 = document.querySelector(".container-result-90")
+let containerRow30 = document.querySelector(".container-result-30");
+let containerRow60 = document.querySelector(".container-result-60");
+let containerRow90 = document.querySelector(".container-result-90");
 
 // generates the numbers and adds them to the history 
 function changeContent() {
@@ -98,14 +98,16 @@ function changeContent() {
         function loop() {
             if (arrResult.length < 90) {
                 let numberResult = Math.floor(Math.random() * 91) + 1;
-                arrResult.push(numberResult);
-                if (containerRow30.children.length < 30) {
+                if (!arrResult.find((element) => element === numberResult) && containerRow30.children.length < 30) {
+                    arrResult.push(numberResult);
                     let span = document.createElement("span");
                     span.classList.add('number-result');
                     containerRow30.appendChild(span);
                     containerRow30.children[i].textContent = numberResult;
                     i++;
-                } else if(containerRow60.children.length < 30) {
+                    buttonStart.textContent = numberResult;
+                } else if(!arrResult.find((element) => element === numberResult) && containerRow60.children.length < 30) {
+                    arrResult.push(numberResult);
                     if(i === 30) {
                         i = 0
                     }
@@ -114,7 +116,9 @@ function changeContent() {
                     containerRow60.appendChild(span);
                     containerRow60.children[i].textContent = numberResult;
                     i++;
-                } else if(containerRow90.children.length < 30) {
+                    buttonStart.textContent = numberResult;
+                } else if(!arrResult.find((element) => element === numberResult) && containerRow90.children.length < 30) {
+                    arrResult.push(numberResult);
                     if(i === 30) {
                         i = 0
                     }
@@ -123,9 +127,14 @@ function changeContent() {
                     containerRow90.appendChild(span);
                     containerRow90.children[i].textContent = numberResult;
                     i++;
+                    buttonStart.textContent = numberResult;
                 }
-                buttonStart.textContent = numberResult;
-                setTimeout(loop, 500); 
+                // recursion time handler according to the intensity of finding a new non-repeated number
+                (containerRow30.children.length < 30)
+                ? setTimeout(loop, 400)
+                : (containerRow60.children.length >= 15 && containerRow30.children.length < 30)
+                ? setTimeout(loop, 250)
+                : (containerRow60.children.length < 15) ? setTimeout(loop, 200) : setTimeout(loop, 50); 
             }
         }
         loop();  
@@ -133,3 +142,5 @@ function changeContent() {
 
 buttonStart.addEventListener('click', bingo);
 buttonStart.addEventListener('click', changeContent);
+
+// initialize function of the statement of winner
