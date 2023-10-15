@@ -44,20 +44,32 @@ align-self: center;
 padding: 20px 0px 0px 0px;
 }
 .ul-numbers {
+    height: 100%;
+    width: 100%;
     gap: 17px;
     padding: 10px 5px;
     list-style: none;
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: center;
     justify-content: center;
 }
 .player-row-1, .player-row-2, .player-row-3, .cpu-row-1, .cpu-row-2, .cpu-row-3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: auto;
     gap: 17px;
 }
 .number-row-1, .number-row-2, .number-row-3 {
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #eeeeee;
-    padding: 15px;
 }
 .number-match {
     background-color: transparent !important;
@@ -79,8 +91,8 @@ padding: 20px 0px 0px 0px;
     justify-content: center;
 }
 .bombo-square {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     border: 3px solid gray;
 }
 .bombo-button {
@@ -88,6 +100,11 @@ padding: 20px 0px 0px 0px;
     height: 100%;
     border: none;
     cursor: pointer;
+    text-align: center;
+    font-size: 13px;
+}
+.bombo-button-Restart {
+    color: red;
 }
 .container-result {
     width: 80%;
@@ -102,15 +119,41 @@ padding: 20px 0px 0px 0px;
     border: 2px solid gray;
 }
 .container-result-30, .container-result-60, .container-result-90 {
-    width: 40px;
-    height: 40px;
+    width: 100%;
+    height: 100%;
     display: flex;
+    justify-content: start;
+    align-items: center;
     text-align: center;
     gap: 5px;
 }
 .number-result {
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #eeeeee;
-    width: 100%;
-    height: 100%;
-    padding: 10px;
+}
+@media only screen and (max-width: 768px) {
+
+    .section-content {
+        flex-direction: column;
+    }
+
+    .container-player, .container-cpu, .container-bombo {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .container-result {
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    .bombo-square {
+        width: 50px;
+        height: 50px;
+    }
 }
