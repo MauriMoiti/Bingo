@@ -1,4 +1,5 @@
-// Math.floor(Math.random() * 100))  
+import { bingo, generateRandomNumber } from "./js/createTable";
+
 const arrPlayer = [];
 const arrCPU = [];
 const arrResult = [];
@@ -12,79 +13,10 @@ const cpuRow1 = document.querySelector(".cpu-row-1");
 const cpuRow2 = document.querySelector(".cpu-row-2");
 const cpuRow3 = document.querySelector(".cpu-row-3");
 
-let iPlayer = 0;
-let iCPU = 0;
-function bingo() {
-    while(arrPlayer.length < 15) {
-        // Generating number for player
-        const numPlayer = Math.floor(Math.random() * 90) + 1;
-        // Verifiying that the number is not repeated
-        if(!arrPlayer.find((element) => element === numPlayer) && arrPlayer.length < 15) {
-            arrPlayer.push(numPlayer);
-            // Generating a span element for every aleatory number
-            if(playerRow1.children.length < 5) {
-                const span = document.createElement("span");
-                span.classList.add('number-row-1', 'number-player');
-                playerRow1.appendChild(span);
-                playerRow1.children[iPlayer].textContent = numPlayer;
-                iPlayer++
-            } else if(playerRow2.children.length < 5) {
-                if(iPlayer === 5) {
-                    iPlayer = 0
-                }
-                const span = document.createElement("span");
-                span.classList.add('number-row-2', 'number-player');
-                playerRow2.appendChild(span);
-                playerRow2.children[iPlayer].textContent = numPlayer;
-                iPlayer++
-            } else if(playerRow3.children.length < 5) {
-                if(iPlayer === 5) {
-                    iPlayer = 0
-                }
-                const span = document.createElement("span");
-                span.classList.add('number-row-3', 'number-player');
-                playerRow3.appendChild(span);
-                playerRow3.children[iPlayer].textContent = numPlayer;
-                iPlayer++
-            }
-        }
-    }
-    while(arrCPU.length < 15) { 
-        // generating number for CPU
-        const numCPU = Math.floor(Math.random() * 90) + 1;
-        // verifiying that the number is not repeated
-        if(!arrCPU.find((element) => element === numCPU) && arrCPU.length < 15) {
-            arrCPU.push(numCPU);
-            // Generating a span element for every aleatory number
-            if(cpuRow1.children.length < 5) {
-                const span = document.createElement("span");
-                span.classList.add('number-row-1');
-                cpuRow1.appendChild(span);
-                cpuRow1.children[iCPU].textContent = numCPU;
-                iCPU++
-            } else if(cpuRow2.children.length < 5) {
-                if(iCPU === 5) {
-                    iCPU = 0
-                }
-                const span = document.createElement("span");
-                span.classList.add('number-row-2');
-                cpuRow2.appendChild(span);
-                cpuRow2.children[iCPU].textContent = numCPU;
-                iCPU++
-            } else if(cpuRow3.children.length < 5) {
-                if(iCPU === 5) {
-                    iCPU = 0
-                }
-                const span = document.createElement("span");
-                span.classList.add('number-row-3');
-                cpuRow3.appendChild(span);
-                cpuRow3.children[iCPU].textContent = numCPU;
-                iCPU++
-            }
-        }
-    }
-    return {arrPlayer, arrCPU}
-}
+
+
+
+
 const buttonStart = document.querySelector(".bombo-button");
 
 // select container row results 
@@ -190,7 +122,6 @@ const findMatch = (numberResult) => {
         countPlayer = combinedArray.length;
         
     } 
-    console.log(countPlayer)
     if(arrCPU.find((element) => element === numberResult)) { 
         let indexMatch = arrCPU.indexOf(arrCPU.find((element) => element === numberResult))
         if(indexMatch < 5) {
