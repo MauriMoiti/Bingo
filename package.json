@@ -1,6 +1,7 @@
 {
   "name": "bingo",
   "version": "1.0.0",
+  "type": "module",
   "description": "reto de programación con JavaScript vanilla",
   "main": "main.js",
   "scripts": {
