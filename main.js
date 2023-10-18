@@ -25,13 +25,13 @@ let gameOver = false;
 const headerTitle = document.querySelector('.header-title')
 const isWinner = () => {
     if(playersCounts["player"] === 15 && playersCounts["CPU"] === 15) {
-        headerTitle.textContent = "empate";
+        headerTitle.textContent = "Draw";
         gameOver = true;
     } else if(playersCounts["player"] === 15) {
-        headerTitle.textContent = "player win";
+        headerTitle.textContent = "Player win";
         gameOver = true;
     } else if(playersCounts["CPU"] === 15) {
-        headerTitle.textContent = "cpu win";
+        headerTitle.textContent = "CPU win";
         gameOver = true;
     }
 }
