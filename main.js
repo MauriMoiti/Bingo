@@ -7,14 +7,9 @@ const playersCounts = {
 }
 
 const buttonStart = document.querySelector(".bombo-button");
-
-// select container row results 
-
-
-
-
 buttonStart.addEventListener('click', handleButtonClick);
 
+//  * Handles the click event of the start button, either initializing the game or restarting it.
 function handleButtonClick() {
     if (buttonStart.textContent === 'START') {
         bingo();
@@ -29,7 +24,6 @@ function handleButtonClick() {
 let gameOver = false;
 const headerTitle = document.querySelector('.header-title')
 const isWinner = () => {
-
     if(playersCounts["player"] === 15 && playersCounts["CPU"] === 15) {
         headerTitle.textContent = "empate";
         gameOver = true;

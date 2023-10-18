@@ -7,15 +7,19 @@ const containerRow90 = document.querySelector(".container-result-90");
 const arrResult = [];
 function addElements() {
 
+    // Recursive loop function that generates and adds numbers to the history.
     function loop() {
         if(gameOver) {
             buttonStart.textContent = "Restart";
             buttonStart.classList.add("bombo-button-Restart");
             return
         }
-        // generates the numbers and adds them to the history   
+        // Generates numbers and adds them to the history.
+        // Ensures the number is not repeated and adds it to the appropriate row.
+        // Also updates the button's content with the generated number.   
         if (arrResult.length < 90) {
             const numberResult = generateRandomNumber();
+            // The following conditions check which row the number should be added to.
             if (!isTheNumberRepeated(numberResult, arrResult) && containerRow30.children.length < 30) {
                 arrResult.push(numberResult)
                 addNumberToRow(containerRow30, ["number-result"], numberResult)

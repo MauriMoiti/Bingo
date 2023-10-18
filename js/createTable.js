@@ -17,6 +17,12 @@ function isTheNumberRepeated(num, arr) {
     return arr.find((element) => element === num)
 }
 
+/**
+ * Adds a given number to a specified row with provided class(es).
+ * @param {HTMLElement} row - The row to append the number to.
+ * @param {Array} classList - List of classes to apply to the number.
+ * @param {number} num - Number to append.
+ */
 function addNumberToRow(row, classList, num) {
     const span = document.createElement("span");
     classList.forEach( (clss) => { span.classList.add(clss)});
@@ -25,6 +31,13 @@ function addNumberToRow(row, classList, num) {
     row.children[index].textContent = num
 }
 
+/**
+ * Fills the rows with random numbers ensuring no repetition within the provided array.
+ * @param {Array} arr - Array to check for repetitions.
+ * @param {HTMLElement} row1 - First row to append numbers to.
+ * @param {HTMLElement} row2 - Second row to append numbers to.
+ * @param {HTMLElement} row3 - Third row to append numbers to.
+ */
 function tableContent(arr, row1, row2, row3) {
     while(arr.length < 15) {
         // Generating number for player
