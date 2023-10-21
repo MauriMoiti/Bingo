@@ -167,12 +167,10 @@ padding: 20px 0px 0px 0px;
         -moz-border-radius: 0%;
         -ms-border-radius: 0%;
         -o-border-radius: 0%;
-}
-
+    }
     .container-player, .container-cpu{
         width: 100%;
     }
-
     .container-result {
         height: 660px;
         width: 50%;
@@ -192,7 +190,6 @@ padding: 20px 0px 0px 0px;
         width: 20px;
         padding: 12px;
     }
-
     .bombo-square {
         border-radius: 100%;
         width: auto;
@@ -202,11 +199,11 @@ padding: 20px 0px 0px 0px;
         -moz-border-radius: 100%;
         -ms-border-radius: 100%;
         -o-border-radius: 100%;
-}
-.bombo-button {
-    border-radius: 100%;
-    padding: 10px;
-}
+    }
+    .bombo-button {
+        border-radius: 100%;
+        padding: 10px;
+    }
 }
 
 @media only screen and (max-width: 950px) {
